@@ -1,0 +1,49 @@
+<?php
+get_header();
+
+while ( have_posts() ) {
+    ?>
+    <div class="main">
+        <div class="container-fluid">
+            <?php
+            /**
+             * Display the hero image
+             */
+            set_query_var('title', get_the_title());
+            set_query_var('image_url', Page::getAttachmentImage('full') ?: DEFAULT_HERO_IMAGE);
+            set_query_var('image_position', (get_field('v_pos') ?: 'center').' '.(get_field('h_pos') ?: 'center'));
+            get_template_part('partials/hero');
+
+            the_post();
+
+            ?>
+            <div class="row flex-row">
+                <?php
+                if (get_field('frontpage_quote')) {
+                    ?>
+                    <div class="col-sm-6 hidden-xs">
+                        <div class="quote"><?= get_field('frontpage_quote') ?></div>
+                    </div>
+                    <?php
+                }
+                ?>
+                <div class="col-sm-6">
+                    <div class="main-body main-body--less-x-padding">
+                        <?php
+                        the_content();
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+    /**
+     * Display flex content fields sections
+     */
+    do_action('display_flex_content', get_field('flex_content'));
+
+    get_template_part('partials/references');
+}
+
+get_footer();

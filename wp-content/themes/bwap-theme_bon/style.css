@@ -1,0 +1,677 @@
+﻿/*
+
+* Table of contents
+
+* 
+
+* +General stuff 
+
+* +Typo
+
+* +Google maps
+
+* +404
+
+* +FrontPage
+
+* +Products
+
+* +Gravity
+
+*/
+
+
+
+/*
+
+* +General stuff
+
+*/
+
+body {
+
+    padding: 75px 0 0;
+
+    font-weight: 300;
+
+    background-image: url(images/bg_tile.svg);
+
+    background-size: 120vw auto;
+
+    background-position: center;
+
+    background-repeat: repeat-y;
+
+
+
+    @media (min-width: $screen-md-min) {
+
+        padding: 165px 50px 50px;
+
+    }
+
+}
+
+
+
+:focus {
+
+    outline: 0;
+
+}
+
+
+
+.box {
+
+    background: #fff;
+
+    box-shadow: 0 0 60px rgba(0, 0, 0, .15);
+
+    padding: 20px;
+
+}
+
+
+
+.main {
+
+    padding: 0 0 30px 0;
+
+    width: 100%;
+
+    margin: auto;
+
+
+
+    @media (min-width: $screen-md-min) {
+
+        padding: 0 25px 35px 25px;
+
+    }
+
+}
+
+
+
+.main-body {
+
+    @extend .box;
+
+
+
+    position: relative;
+
+    z-index: 5;
+
+    padding: 0 20px;
+
+    margin: -65px auto 0 auto;
+
+    max-width: $main-page-max-width;
+
+    animation: revealUp 1s ease;
+
+
+
+    @media (min-width: $screen-md-min) {
+
+        padding: 0 60px;
+
+        margin: -85px auto 0 auto;
+
+    }
+
+
+
+    &--margins {
+
+        padding-top: 20px;
+
+        padding-bottom: 20px;
+
+
+
+        @media (min-width: $screen-md-min) {
+
+            padding-top: 60px;
+
+            padding-bottom: 60px;
+
+        }
+
+    }
+
+    
+
+    &--less-x-padding {
+
+        @media (min-width: $screen-lg-min) {
+
+            padding-left: 60px;
+
+            padding-right: 60px;
+
+
+
+            .section--fullwidth {
+
+                margin-left: -60px;
+
+                margin-right: -60px;
+
+            }
+
+        }
+
+    }
+
+}
+
+
+
+.section {
+
+
+
+    position:relative;
+
+    z-index: 1;
+
+
+
+    &--fullwidth {
+
+        margin-left: -20px;
+
+        margin-right: -20px;
+
+
+
+        @media (min-width: $screen-md-min) {
+
+            margin-left: -60px;
+
+            margin-right: -60px;
+
+        }
+
+    }
+
+
+
+    &--margin {
+
+        background-color: #fff;
+
+        padding: 0 20px;
+
+        margin: 0 20px;
+
+        @media (min-width: $screen-md-min) {
+
+            padding: 0 50px;
+
+            margin: 0 60px;
+
+        }
+
+    }
+
+
+
+    &:first-child {
+
+        // if the section is the first-child, dont use margin-top
+
+        // because it has already been set by .main-body
+
+        margin-top: 0;
+
+    }
+
+
+
+    &:last-of-type {
+
+        margin-bottom: 0;
+
+    }
+
+
+
+    &:first-child {
+
+        .section__title {
+
+            background-color: #fff;
+
+            @extend h3;
+
+
+
+            &:before {
+
+                margin: auto;
+
+            }
+
+        }
+
+    }
+
+
+
+    &__content {
+
+        padding-top: 20px;
+
+        padding-bottom: 20px;
+
+
+
+        @media (min-width: $screen-md-min) {
+
+            padding-top: 60px;
+
+            padding-bottom: 60px;
+
+        }
+
+    }
+
+}
+
+
+
+// disable section margin on certain elements
+
+.page-template-template-contact .section .section,
+
+.post-type-archive-product{
+
+    .section__content {
+
+        padding-top: 0;
+
+        padding-bottom: 0;
+
+    }
+
+}
+
+
+
+.row--margin {
+
+    + .row--margin {
+
+        margin-top: 50px;
+
+    }
+
+}
+
+
+
+// section in home have less padding
+
+.home {
+
+    .section--fullwidth {
+
+        margin-left: 0;
+
+        margin-right: 0;
+
+
+
+        @media (min-width: $screen-md-min) {
+
+            margin-left: -50px;
+
+            margin-right: -50px;
+
+        }
+
+    }
+
+}
+
+
+
+.flex-row {
+
+    @media (min-width: $screen-sm-min) {
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: flex-end;
+
+    }
+
+}
+
+
+
+/*
+
+* +Typo
+
+*/
+
+h2, h3 {
+
+    text-transform: uppercase;
+
+}
+
+h3 {
+
+    margin-bottom: 30px;
+
+    text-align: center;
+
+
+
+    &:after {
+
+        content: '';
+
+        display: block;
+
+        height: 7px;
+
+        width: 23px;
+
+        background-color: $brand-primary;
+
+        margin: auto;
+
+        margin-top: 15px;
+
+    }
+
+
+
+    &:first-child {
+
+        margin-top: 0;
+
+    }
+
+}
+
+
+
+b,strong {
+
+    font-weight: 400;
+
+}
+
+
+
+.link {
+
+    text-decoration: underline;
+
+    font-weight: 500;
+
+}
+
+
+
+/*
+
+* +Google maps
+
+*/
+
+.map {
+
+    width: 100%;
+
+    height: 400px;
+
+}
+
+
+
+/*
+
+* +404
+
+*/
+
+.error404 {
+
+    .hero {
+
+        @media (min-width: $screen-md-min) {
+
+            margin: -25px;
+
+        }
+
+    }
+
+}
+
+
+
+/*
+
+* +FrontPage
+
+*/
+
+.quote {
+
+    font-size: 46px;
+
+    font-weight: 500;
+
+    color: #fff;
+
+    line-height: 1.2;
+
+    padding-bottom: 60px;
+
+    position:relative;
+
+
+
+    &:before {
+
+        content: '';
+
+        display: block;
+
+        width: 236px;
+
+        height: 189px;
+
+        background-image: url(images/quote.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        position: absolute;
+
+        right: 0;
+
+        top:-40px;
+
+    }
+
+}
+
+
+
+.home {
+
+    .main {
+
+        padding-bottom: 115px;
+
+    }
+
+
+
+    .section:not(.section--fullwidth) {
+
+        max-width: 900px;
+
+        width: 100%;
+
+        margin: auto;
+
+    }
+
+}
+
+
+
+/*
+
+* +Products
+
+*/
+
+.product-title {
+
+    margin: 10px 25px;
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    font-family: $headings-font-family;
+
+    text-transform: none;
+
+}
+
+
+
+.product-image {
+
+    background-position: center;
+
+    background-size: cover;
+
+    height: 184px;
+
+    width: 100%;
+
+
+
+    @media (min-width: $screen-sm-min) {
+
+        height: 384px;
+
+    }
+
+}
+
+
+
+/*
+
+* +Gravity
+
+*/
+
+.gf_left_half:first-child() + .gf_right_half {
+
+    margin-top: 0;
+
+}
+
+
+
+.gform_footer {
+
+    text-align: center;
+
+}
+
+
+
+.ginput_container {
+
+    input,
+
+    textarea {
+
+        border: 1px solid #000;
+
+    }
+
+}
+
+
+
+.gfield {
+
+    &:first-child {
+
+        margin-top: 0 !important;
+
+    }
+
+
+
+    label {
+
+        font-size: 14px !important;
+
+        font-weight: 400 !important;
+
+        color: $brand-primary;
+
+    }
+
+}
+
+
+
+.gform_body {
+
+    width: calc(100% + 15px) !important;
+
+}
+
+
+
+.gform_wrapper {
+
+    @media (min-width: $screen-sm-min) {
+
+        margin-top: 0 !important;
+
+    }
+
+}
+
+
+
+.gfield_required {
+
+    display: none;
+
+}
+
+
+
+.gform_button {
+
+    @extend .btn;
+
+    margin: 0 !important;
+
+}
